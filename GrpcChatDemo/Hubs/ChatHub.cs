@@ -13,4 +13,11 @@ public class ChatHub : Hub
     {
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, chatSessionId.ToString());
     }
+    
+    public async Task SendMessageToServer(string user, int sessionId, string message)
+    {
+        // Process the message (e.g., broadcast it to other clients)
+        await Clients.Group(sessionId.ToString()).SendAsync("ReceiveMessage", user, message);
+        //await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
 }
