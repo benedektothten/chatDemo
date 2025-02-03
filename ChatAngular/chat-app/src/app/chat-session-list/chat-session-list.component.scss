@@ -1,0 +1,55 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  .username-section {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    max-width: 400px;
+    margin: 1rem auto;
+  }
+  
+  .session-list {
+    margin-top: 1rem;
+  }
+  
+  .session-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .session-info h4 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+  }
+  
+  .alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+  }

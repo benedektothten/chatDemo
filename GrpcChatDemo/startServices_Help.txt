@@ -1,0 +1,3 @@
+﻿docker run -it --rm -v "$(pwd)/envoy.yaml:/etc/envoy/envoy.yaml" -p 8080:8080 envoyproxy/envoy:v1.26-latest envoy -c /etc/envoy/envoy.yaml
+
+docker run --name postgres -e POSTGRES_PASSWORD=passwd123 -p 5432:5432 -d postgres
