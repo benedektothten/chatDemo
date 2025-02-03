@@ -1,0 +1,39 @@
+<div class="container">
+    <!-- Username Form -->
+     @if (!userService.getCurrentUser()) {
+        <div class="username-section">
+            <h2>Enter Your Username</h2>
+            <div class="form-group">
+              <input type="text" pInputText [formControl]="username" placeholder="Username" />
+              <br />
+              <p-password [formControl]="password" [toggleMask]="true" placeholder="Password" />
+              <p-button label="Login" (click)="submitUsername()" icon="pi pi-refresh" iconPos="bottom" />
+              <p-button label="Register" (click)="createUser()" icon="pi pi-refresh" iconPos="bottom" />
+            </div>
+            @if (error) {
+                <div class="alert alert-danger">{{ error }}</div>
+            }
+            
+          </div>
+     }
+
+  
+    @if (userService.getCurrentUser()) {
+        <div>
+            <h2>Welcome, {{ userService.getCurrentUser()?.name }}!</h2>
+            <h3>Available Chat Sessions</h3>
+            
+            @if (chatSessions$ | async; as chats) {
+                <p-button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+                @if (chats.length === 0) {
+                    <p-message severity="info">No chat sessions available.</p-message>
+                } @else {
+                    <p-listbox [options]="chats" [(ngModel)]="selectedSession" optionLabel="name" class="w-full md:w-56" />
+                }
+              } @else {
+                <div class="loading">Loading sessions...</div>
+              }
+          </div>
+    }
+    @if (error) {<div class="alert alert-danger">{{ error }}</div>}
+  </div>

@@ -1,0 +1,78 @@
+﻿syntax = "proto3";
+
+package chat;
+
+import "google/protobuf/timestamp.proto";
+
+// gRPC Service Definition
+service ChatService {
+
+  // User Management
+  rpc CreateUser (CreateUserRequest) returns (UserResponse);
+  rpc GetUser (UserRequest) returns (UserResponse);
+
+  // Chat Session Management
+  rpc CreateChatSession (CreateChatSessionRequest) returns (ChatSessionResponse);
+  rpc GetChatSession (ChatSessionRequest) returns (ChatSessionResponse);
+
+  // Message Management
+  rpc SendMessage (SendMessageRequest) returns (MessageResponse);
+  rpc StreamMessages (ChatSessionRequest) returns (stream MessageResponse);
+}
+
+// User Model
+message User {
+  int32 id = 1;
+  string name = 2;
+}
+
+message CreateUserRequest {
+  string name = 1;
+}
+
+message UserRequest {
+  int32 user_id = 1;
+}
+
+message UserResponse {
+  User user = 1;
+}
+
+// Chat Session Model
+message ChatSession {
+  int32 id = 1;
+  string name = 2;
+  int32 owner_id = 3;
+}
+
+message CreateChatSessionRequest {
+  string name = 1;
+  int32 owner_id = 2;
+}
+
+message ChatSessionRequest {
+  int32 chat_session_id = 1;
+}
+
+message ChatSessionResponse {
+  ChatSession chat_session = 1;
+}
+
+// Message Model
+message Message {
+  int32 id = 1;
+  string content = 2;
+  google.protobuf.Timestamp created_at = 3;
+  int32 user_id = 4;
+  int32 chat_session_id = 5;
+}
+
+message SendMessageRequest {
+  int32 chat_session_id = 1;
+  int32 user_id = 2;
+  string content = 3;
+}
+
+message MessageResponse {
+  Message message = 1;
+}
