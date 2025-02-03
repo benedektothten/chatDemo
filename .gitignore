@@ -1,0 +1,106 @@
+# Angular specific
+## Node.js and NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+
+## Build artifacts
+dist/
+.tmp/
+.out/
+
+## Cache
+.cache/
+
+## Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+## IDE and Editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+## Testing
+coverage/
+karma.conf.js
+test-results.xml
+
+## Angular CLI
+.angular/
+
+# .NET Core specific
+## Build and publish output
+bin/
+obj/
+publish/
+
+## NuGet
+.nuget/
+*.nupkg
+nuget.exe
+
+## Local development
+.vs/
+*.user
+*.userprefs
+*.userosscache
+
+## MSTest
+TestResults/
+*.trx
+
+## Rider IDE
+.idea/
+*.sln.iml
+
+## Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Azure Functions
+func/
+
+## Local development cache
+appsettings.Development.json
+
+# General
+## OS-specific files
+.DS_Store
+Thumbs.db
+
+## Logs and databases
+*.log
+*.sqlite
+
+## Dependency directories
+bower_components/
+jspm_packages/
+
+## Debug files
+*.pid
+*.seed
+*.pid.lock
+
+## Miscellaneous
+*.bak
+*.swp
+*.swo
+*~
+*.orig
+*.rej
